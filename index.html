@@ -34,5 +34,12 @@
     <!-- The root element for your Expo app. -->
     <div id="root"></div>
   <script src="/word-engine-demos/_expo/static/js/web/entry-3759ed8b796f7ba84717bbb64c38af9a.js" defer></script>
+  <script>
+if ('serviceWorker' in navigator) {
+  var baseEl = document.querySelector('base');
+  var baseHref = baseEl && baseEl.href ? baseEl.href : location.href;
+  navigator.serviceWorker.register(new URL('sw.js', baseHref).href, { updateViaCache: 'none' }).catch(function () {});
+}
+  </script>
 </body>
 </html>
